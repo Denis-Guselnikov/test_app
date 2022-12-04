@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}Главная страница{% endblock %} 
+{% block content %}
+
+<h3 class="my-3">Тесты Тут!!!</h3>
+
+<div class="row">
+    {% for category in catData %}
+    <div class="col-md-4">
+        <div class="card">
+            <a href="{% url 'main:cat_question' category.id %}"><img src="{{ category.image.url }}" class="card-img-top" alt="{{ category.title }}" width="250" height="250"></a>
+            <div class="card-body">
+                <h5 class="card-title"><a href="{% url 'main:cat_question' category.id %}">{{ category.title }}</a></h5>                
+                
+              </div>        
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %} 

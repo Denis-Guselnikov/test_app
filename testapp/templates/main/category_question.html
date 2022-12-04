@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block title %}Вопросы Категории {{ category }}{% endblock %}
+{% block content %}
+    <h2 class="my-4">Вопросы Категории: <span class="text-primary">{{ category }}</span></h2>
+
+    {% for question in questions %}
+    <div class="card my-4"> 
+        <h4 class="card-header">{{ question.question }}</h4>  
+        <div class="card-body">
+            <table class="table table-bordered">
+                <tr>
+                    <td><input id="option_1" name="answer" type="radio" /></td>
+                    <th><label for="option_1">{{ question.option_1 }}</label></th>
+                </tr>
+                <tr>
+                    <td><input id="option_2" name="answer" type="radio" /></td>
+                    <th><label for="option_2">{{ question.option_2 }}</label></th>
+                </tr>
+                <tr>
+                    <td><input id="option_3" name="answer" type="radio" /></td>
+                    <th><label for="option_3">{{ question.option_3 }}</label></th>
+                </tr>
+                <tr>
+                    <td><input id="option_4" name="answer" type="radio" /></td>
+                    <th><label for="option_4">{{ question.option_4 }}</label></th>
+                </tr>
+            </table>    
+        </div> 
+        <div class="card-footer"> 
+            <input type="submit" value="skip" class="btn btn-warning" />           
+            <input type="submit" value="submit" class="btn btn-primary" /> 
+        </div>
+    </div>
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,25 @@
+{% load static %}
+
+<!DOCTYPE html> 
+<html lang="ru">          
+  <head> 
+    {% include 'includes/head.html' %} 
+    <title>{% block title %}Контент{% endblock title %}</title>      
+  </head>
+  <body>       
+    <header>
+      {% include 'includes/header.html' %}
+    </header>
+    <main>
+      <div class="container py-5">
+        {% block content %}
+          Контент не подвезли :(
+        {% endblock %} 
+      </div>
+    </main>
+    <footer>
+      {% include 'includes/footer.html' %} 
+    </footer>
+  </body>
+</html> 
+ 
