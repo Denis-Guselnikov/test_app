@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 
 class QuizCategory(models.Model):
@@ -35,3 +36,15 @@ class QuestionsCategory(models.Model):
 
     def __str__(self):
         return self.question
+
+
+class UserSubmittedAnswer(models.Model):
+    """
+    Отправленные пользователем ответы.
+    """
+    question = models.ForeignKey(QuestionsCategory, on_delete=models.CASCADE)
+    user=models.ForeignKey(User, on_delete=models.CASCADE)
+    right_answer = models.CharField(max_length=255)
+
+    class Meta:
+        verbose_name_plural = 'Отправленные пользователем ответы'
