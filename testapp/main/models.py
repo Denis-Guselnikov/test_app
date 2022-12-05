@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 
 class QuizCategory(models.Model):
     """
-    Категория тестов.
+    Категория тестов
     """
     title = models.CharField(max_length=255)
     description = models.TextField()
@@ -19,7 +19,7 @@ class QuizCategory(models.Model):
 
 class QuestionsCategory(models.Model):
     """
-    Вопросы в категориях.
+    Вопросы в категориях
     """
     category = models.ForeignKey(QuizCategory, on_delete=models.CASCADE)
     question = models.TextField()
@@ -40,7 +40,7 @@ class QuestionsCategory(models.Model):
 
 class UserSubmittedAnswer(models.Model):
     """
-    Отправленные пользователем ответы.
+    Отправленные пользователем ответы
     """
     question = models.ForeignKey(QuestionsCategory, on_delete=models.CASCADE)
     user=models.ForeignKey(User, on_delete=models.CASCADE)

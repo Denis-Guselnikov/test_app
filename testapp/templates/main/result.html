@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block title %}Вопросы Категории {{ category }}{% endblock %}
+{% block content %}
+    <h2 class="my-4">Результаты</h2>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>Категории</th>
+            <th>Вопрос</th>
+            <th>Правильный ответ</th>
+            <th>Выбранный ответ</th>            
+        </tr>
+        </thead>
+        <tbody>
+            {% for row in result %}
+            <tr>
+                <td>{{ row.question.category }}</td>
+                <td>{{ row.question }}</td>
+                <td>{{ row.question.right_option }}</td>
+                {% if row.question.right_option == row.right_answer %}
+                <td class="bg-success text-white">{{ row.right_answer }}</td>
+                {% else %}
+                <td class="bg-danger text-white">{{ row.right_answer }}</td>
+                {% endif %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+    <h3 class="my-4">Подробная информация</h3>
+    <table class="table table-bordered">
+        <tr>
+            <th>Общее кол-во вопросов</th>
+            <td>{{ result.count }}</td>
+        </tr>        
+        <tr>
+            <th>Кол-во правильных ответов</th>
+            <td>{{ rightAnswer }}</td>
+        </tr>
+        <tr>
+            <th>Процент правильных ответов</th>
+            <td>{{ percentage }}%</td>
+        </tr>
+    </table>    
+
+{% endblock %}

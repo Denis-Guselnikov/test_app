@@ -1,5 +1,4 @@
 {% extends 'base.html' %}
-{% load static %}
 {% block title %}Вопросы Категории {{ category }}{% endblock %}
 {% block content %}
     <h2 class="my-4">Вопросы Категории: <span class="text-primary">{{ category }}</span></h2>
@@ -12,31 +11,31 @@
         <div class="card-body">
             <table class="table table-bordered">
                 <tr>
-                    <td><input class="answer1" value="{{ question.option_1 }}" required id="option_1" name="answer" type="radio" /></td>
+                    <td><input value="{{ question.option_1 }}" required id="option_1" name="answer" type="radio" /></td>
                     <th><label for="option_1">{{ question.option_1 }}</label></th>
                 </tr>
                 <tr>
-                    <td><input class="answer2" value="{{ question.option_2 }}" required id="option_2" name="answer" type="radio" /></td>
+                    <td><input value="{{ question.option_2 }}" required id="option_2" name="answer" type="radio" /></td>
                     <th><label for="option_2">{{ question.option_2 }}</label></th>
                 </tr>
                 <tr>
-                    <td><input class="answer3" value="{{ question.option_3 }}" required id="option_3" name="answer" type="radio" /></td>
+                    <td><input value="{{ question.option_3 }}" required id="option_3" name="answer" type="radio" /></td>
                     <th><label for="option_3">{{ question.option_3 }}</label></th>
                 </tr>
                 <tr>
-                    <td><input class="answer4" value="{{ question.option_4 }}" required id="option_4" name="answer" type="radio" /></td>
+                    <td><input value="{{ question.option_4 }}" required id="option_4" name="answer" type="radio" /></td>
                     <th><label for="option_4">{{ question.option_4 }}</label></th>
                 </tr>
             </table>    
         </div> 
-        <div class="card-footer"> 
-            <input type="submit" name="skip" value="skip" class="btn btn-warning skipBtn" />           
+        <div class="card-footer">                       
             <input type="submit" name="submit" value="submit" class="btn btn-primary submitBtn" /> 
         </div>
         </form>
     </div>
 
 <script type="text/javascript">
+    // Всплывающее окно, если не выбрал ответ
     $(document).ready(function(){
         $(".submitBtn").on('click', function(){
             var _checkedAns=$("input[name='answer']:checked").val();
