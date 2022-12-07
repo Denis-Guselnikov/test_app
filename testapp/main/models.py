@@ -1,5 +1,5 @@
-from django.db import models
 from django.contrib.auth.models import User
+from django.db import models
 
 
 class QuizCategory(models.Model):
@@ -8,7 +8,7 @@ class QuizCategory(models.Model):
     """
     title = models.CharField(max_length=255)
     description = models.TextField()
-    image = models.ImageField(upload_to='images/', default='images/default.png') 
+    image = models.ImageField(upload_to='images/', default='images/default.png')
 
     class Meta:
         verbose_name_plural = 'Категории тестов'
@@ -43,7 +43,7 @@ class UserSubmittedAnswer(models.Model):
     Отправленные пользователем ответы
     """
     question = models.ForeignKey(QuestionsCategory, on_delete=models.CASCADE)
-    user=models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     right_answer = models.CharField(max_length=255)
 
     class Meta:

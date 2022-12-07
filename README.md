@@ -35,7 +35,8 @@ password: admin
 
 Убедитесь, что вы находитесь в той же директории, где сохранён Dockerfile
 
-1. ```docker build -t stripe_django .```
-2. ```docker run --name stripe_django -it -p 8000:8000 stripe_django```
+1. ```Клонировать репозиторий https://github.com/Denis-Guselnikov/test_app```
+2. ```docker build -t testapp .```
+3. ```docker run --name testapp -it -p 8000:8000 testapp```
 
 Проект доступен: ```http://127.0.0.1:8000/```
